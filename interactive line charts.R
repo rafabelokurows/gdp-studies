@@ -110,6 +110,33 @@ gdpercapPlot = gdppercap %>%
 gdpercapPlot
 htmlwidgets::saveWidget(widget = gdpercapPlot, file = "out/gdpercapPlot.html",title = "Comparison of GDP per capita - Portugal x Brazil")
 webshot('out/gdpercapPlot.html', file = 'out/gdppercapPlot.png')
+pacman::p_load(dplyr)
+
+gdpercapPlot90s = gdppercap %>% 
+  group_by(country_name) %>% 
+  arrange(desc(country_name)) %>% 
+  mutate(gdp = signif(gdp,3)) %>% 
+  filter(format(year,"%Y")> 1989 )%>% 
+  e_charts(x = year) %>% 
+  #e_datazoom(type = "slider", toolbox = FALSE,bottom = 10) %>% 
+  #%>% e_toolbox_feature(feature = "saveAsImage")
+  e_tooltip(#trigger = "axis",
+    order ='valueDesc'
+    #formatter = e_tooltip_item_formatter("currency")
+  ) %>% 
+  e_title("Comparison of GDP per capita - Portugal x Brazil","Similar growth trends but different scales- Source: World Bank") %>% 
+  e_x_axis(year, axisPointer = list(show = TRUE)) %>% 
+  e_line(gdp, smooth = TRUE) %>% 
+  e_legend(right = 0) %>% 
+  e_theme("chalk") %>%
+  e_color(c("gold","red")) %>% 
+  e_y_axis(
+    formatter = e_axis_formatter("currency", currency = "USD")
+  )%>%
+  e_animation(show = FALSE) 
+gdpercapPlot90s
+htmlwidgets::saveWidget(widget = gdpercapPlot90s, file = "out/gdpercapPlot90s.html",title = "Comparison of GDP per capita - Portugal x Brazil from 1990 to 2020")
+webshot('out/gdpercapPlot90s.html', file = 'out/gdpercapPlot90s.png')
 
 #### GDP per capita in some more countries - per decade ####
 pacman::p_load(CGPfunctions,janitor)
@@ -165,7 +192,11 @@ newggslopegraph(dataframe = morecountries,
   )
 
 ggsave("out/evolution of gdp per capita.pdf", width = 30, height = 20, units = "cm",device=cairo_pdf)
+pacman::p_load(pdftools)
+bitmap <- pdftools::pdf_render_page("out/evolution of gdp per capita.pdf", dpi = 300)
+png::writePNG(bitmap, "out/evolution of gdp per capita.png")
 
+#### Only 1990 x 2000 ####
 rough90s = morecountries %>%  filter(year %in% c(1990,2000))
 
 custom_colors <- rough90s %>% 
@@ -208,7 +239,10 @@ newggslopegraph(dataframe = rough90s,
         axis.text.y = element_blank()
   )
 ggsave("out/gdp per capita 1990 - 2000.pdf", width = 30, height = 20, units = "cm",device=cairo_pdf)
+bitmap <- pdftools::pdf_render_page("out/gdp per capita 1990 - 2000.pdf", dpi = 300)
+png::writePNG(bitmap, "out/gdp per capita 1990 - 2000.png")
 
+#### From 2010 to 2020 ####
 lastdecade = morecountries %>%  filter(year %in% c(2010,2020))
 
 custom_colors <- lastdecade %>% 
@@ -252,7 +286,8 @@ newggslopegraph(dataframe = lastdecade,
   )
 
 ggsave("out/gdp per capita 2010-2020.pdf", width = 30, height = 20, units = "cm",device=cairo_pdf)
-
+bitmap <- pdftools::pdf_render_page("out/gdp per capita 2010-2020.pdf", dpi = 300)
+png::writePNG(bitmap, "out/gdp per capita 2010-2020.png")
 
 #### Tidy Tuesday 05/10 - geofacetting ####
 
