@@ -109,7 +109,7 @@ gdpercapPlot = gdppercap %>%
   e_animation(show = FALSE) 
 gdpercapPlot
 htmlwidgets::saveWidget(widget = gdpercapPlot, file = "out/gdpercapPlot.html",title = "Comparison of GDP per capita - Portugal x Brazil")
-webshot('out/gdpercapPlot.html', file = 'out/teste.png')
+webshot('out/gdpercapPlot.html', file = 'out/gdppercapPlot.png')
 
 #### GDP per capita in some more countries - per decade ####
 pacman::p_load(CGPfunctions,janitor)
