@@ -1,4 +1,4 @@
-# Some plots of GDP created with echarts4r and ggplot - R
+# Some plots of GDP per capita developped with echarts4r and ggplot - R
 
 ## Comparison of GDP per capita between Brazil and Portugal over time
 <img src="https://raw.githubusercontent.com/rafabelokurows/gdp-studies/main/out/gdppercapPlot.png" width="75%" height="75%">  
