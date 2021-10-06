@@ -1,2 +1,4 @@
-out/gdpercapPlot_files
+out/gdpercapPlot_files/
 teste.pdf
+.Rhistory
+.RData
