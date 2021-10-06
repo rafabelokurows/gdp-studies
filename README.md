@@ -11,7 +11,7 @@ could mean economical changes reflect slowly in Brazil than in Portugal.
 <img src="https://github.com/rafabelokurows/gdp-studies/blob/main/out/evolution%20of%20gdp%20per%20capita.png?raw=true" width="75%" height="75%">
 
 Here we can see how the GDP of Brazil and Portugal (and some other countries) changed over the years. The 2000s were great for the economies of almost every country: Portugal's GDP doubled and Brazil's grew three times. On the other hand, the 90s and 2010s were not so great economically-wise.  
-<img src="https://github.com/rafabelokurows/gdp-studies/blob/main/out/gdp%20per%20capita%201990%20-%202000.png?raw=true" width="50%" height="50%">
-<img src="https://github.com/rafabelokurows/gdp-studies/blob/main/out/gdp%20per%20capita%202010-2020.png?raw=true" width="50%" height="50%">
+<img src="https://github.com/rafabelokurows/gdp-studies/blob/main/out/gdp%20per%20capita%201990%20-%202000.png?raw=true" width="75%" height="75%">
+<img src="https://github.com/rafabelokurows/gdp-studies/blob/main/out/gdp%20per%20capita%202010-2020.png?raw=true" width="75%" height="75%">
 
 Source: Data downloaded from World Bank on GDP, GDP per capita and population available in "data/" folder 
