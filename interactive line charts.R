@@ -139,7 +139,7 @@ htmlwidgets::saveWidget(widget = gdpercapPlot90s, file = "out/gdpercapPlot90s.ht
 webshot('out/gdpercapPlot90s.html', file = 'out/gdpercapPlot90s.png')
 
 #### GDP per capita in some more countries - per decade ####
-pacman::p_load(CGPfunctions,janitor)
+pacman::p_load(CGPfunctions,janitor,tidyverse)
 pacman::p_load(ggthemes,hrbrthemes)
 countries = c("Portugal","Brazil","Italy","Argentina","United States","Canada","Switzerland")
 
@@ -214,7 +214,7 @@ custom_colors <- rough90s %>%
 newggslopegraph(dataframe = rough90s,
                 Times = year,
                 Measurement = gdp,
-                Grouping = country_name,Title = "Change in GDP per capita in the last decade",
+                Grouping = country_name,Title = "Change in GDP per capita from 1990 to 2000",
                 SubTitle = "",
                 Caption = "By Rafael Belokurows",
                 LineThickness = 2,
